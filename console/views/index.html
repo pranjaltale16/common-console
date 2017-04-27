@@ -1,1 +1,22 @@
-Hello
+<div class = "box" id = "box">Hello from the other side</div>
+
+<button onclick="update()">Update</button>
+<button onclick="del()">Delete</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<script> 
+var socket = io.connect('http://example.com:3080');
+socket.on('message', function (data) {
+	console.log(data);
+	$('#box').html(data);
+	});
+
+function update(){
+        socket.emit('add',data);
+}
+
+function del(){
+        socket.emit('delete',data);
+}
+</script>
