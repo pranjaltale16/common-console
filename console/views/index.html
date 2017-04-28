@@ -6,17 +6,26 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 
 <script> 
-var socket = io.connect('http://example.com:3080');
+var socket = io.connect('http://localhost:3000');
 socket.on('message', function (data) {
+	console.log("Socket to update HTML Called");
 	console.log(data);
 	$('#box').html(data);
 	});
 
 function update(){
+	console.log("Called Update socket");
+	var data = $('#box').html();
+	data = data + "Add";
+	console.log("Sending string:" + data);
         socket.emit('add',data);
 }
 
 function del(){
+	console.log("Called delete socket");
+	var data = $('#box').html();
+	data = data + "Delete";
+	console.log("Sending string:" + data);
         socket.emit('delete',data);
 }
 </script>

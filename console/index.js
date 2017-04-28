@@ -24,14 +24,21 @@ app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/views/index.html');
 });
 
+var mainString = "Hello"
 //Socket Connections
 socketIo.on('connection', function (socket) {
-	socket.emit('message', 'world');
+	console.log("Connection Done")
+	socket.emit('message', mainString);
 	socket.on('add', function (data) {
-		socket.emit('message', data + 'Add ');
+		console.log("Called add socket in index.js");
+		mainString = data; 
+		console.log(data)
+		socket.emit('message', data);
 		});
 	socket.on('delete', function (data) {
-		socket.emit('message', data + 'delete');
+		console.log("Called remove socket in index.js");
+		mainString = data;
+		socket.emit('message', data);
 		});
 });
 
