@@ -1,7 +1,9 @@
 # common-console
 A basic application in order to share a common screen such that changes done in place gets refelected to other screens. Based on basic implementation of sockets.
 
-Currently it is running [here](https://arcane-earth-11908.herokuapp.com/)
+Currently it is running [here](https://arcane-earth-11908.herokuapp.com/).
+Main Code(node backend and sockets) is in `index.js` and html and associated sockets are in `views/index.html`
+All the extra files are of Express-generator, since there is not much things so I kept everthing directly. 
 
 #### TODO:
   1. Currently Addition and deletion occours at the end of the string. Have to shift it to random position.
