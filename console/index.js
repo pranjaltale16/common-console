@@ -43,6 +43,6 @@ socketIo.on('connection', function (socket) {
 });
 
 //server.listen(3000);
-server.listen(3000, function () {
-    console.log('Server started. Listening for requests on port 3000!');
+server.listen(5000, function () {
+    console.log('Server started. Listening for requests on port 5000!');
 });
