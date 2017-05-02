@@ -31,14 +31,14 @@ socketIo.on('connection', function (socket) {
 	socket.emit('message', mainString);
 	socket.on('add', function (data) {
 		console.log("Called add socket in index.js");
-		mainString = data; 
+		mainString = data + "Add"; 
 		console.log(data)
-		socket.emit('message', data);
+		socket.emit('message', mainString);
 		});
 	socket.on('delete', function (data) {
 		console.log("Called remove socket in index.js");
-		mainString = data;
-		socket.emit('message', data);
+		mainString = data + "Delete";
+		socket.emit('message', mainString);
 		});
 });
 

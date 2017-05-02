@@ -16,7 +16,6 @@ socket.on('message', function (data) {
 function update(){
 	console.log("Called Update socket");
 	var data = $('#box').html();
-	data = data + "Add";
 	console.log("Sending string:" + data);
         socket.emit('add',data);
 }
@@ -24,7 +23,6 @@ function update(){
 function del(){
 	console.log("Called delete socket");
 	var data = $('#box').html();
-	data = data + "Delete";
 	console.log("Sending string:" + data);
         socket.emit('delete',data);
 }
