@@ -33,12 +33,12 @@ socketIo.on('connection', function (socket) {
 		console.log("Called add socket in index.js");
 		mainString = data + "Add"; 
 		console.log(data)
-		socket.emit('message', mainString);
+		socketIo.emit('message', mainString);
 		});
 	socket.on('delete', function (data) {
 		console.log("Called remove socket in index.js");
 		mainString = data + "Delete";
-		socket.emit('message', mainString);
+		socketIo.emit('message', mainString);
 		});
 });
 
