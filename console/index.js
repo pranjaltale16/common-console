@@ -24,22 +24,22 @@ app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/views/index.html');
 });
 
-var mainString = "Hello"
+var mainString = ""
 //Socket Connections
 socketIo.on('connection', function (socket) {
 	console.log("Connection Done")
 	socket.emit('message', mainString);
 	socket.on('add', function (data) {
 		console.log("Called add socket in index.js");
-		mainString = data + "Add"; 
+		mainString = data; 
 		console.log(data)
 		socketIo.emit('message', mainString);
 		});
-	socket.on('delete', function (data) {
-		console.log("Called remove socket in index.js");
-		mainString = data + "Delete";
-		socketIo.emit('message', mainString);
-		});
+	//socket.on('delete', function (data) {
+	//     	console.log("Called remove socket in index.js");
+	//	mainString = data + "Delete";
+	//	socketIo.emit('message', mainString);
+	//	});
 });
 
 //server.listen(3000);
